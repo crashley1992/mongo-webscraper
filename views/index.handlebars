@@ -4,13 +4,17 @@
     <a class="navbar-brand" href="#">Mongo Scraper</a>
   </nav>
 
-  <h1>New York Times Scraper</h1>
-  <h2><i>Get your New York Times Articles here</i></h2>
-  <button class="submit" id="modal-launcher">Get Articles</button>
+<div class="title-container">
+  <h1 id="title">New York Times Scraper</h1>
+  <h2 id="description"><i>Get your New York Times Articles here</i></h2>
+    {{!-- Button that calls articles --}}
+  <button id="submit" type="button" class="btn btn-info">Get Articles</button>
+  </div>
+        {{!-- Notes div --}}
+    <div id="notes"></div>
+{{!-- articles appear here --}}
   <div id="articles"></div>
-  <div id="modal-background">
-    <div id="modal-content">
-      <div id="notes">
-      </div>
     </div>
   </div>
+
+ 

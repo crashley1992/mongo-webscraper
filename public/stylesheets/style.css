@@ -1,0 +1,60 @@
+/* Styling for div with image and title */
+#title {
+    padding: 25px 15px 15px 15px;
+    padding-left: 15px;
+}
+
+#description {
+    padding-left: 15px;
+}
+
+.title-container {
+    background-image: url('/img/background.jpg');
+    background-size: cover;
+    height: 500px;
+}
+
+#notes {
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+}
+
+#notes > input {
+    display: block;
+    padding: 5px 5px 5px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 2px;
+}
+
+#notes > textarea {
+    display: block;
+    padding: 5px 5px 5px 5px;
+    margin-top: 5%;;
+    margin-left: auto;
+    margin-right: auto;    
+    text-align: center;
+    border: solid black 2px;
+    width: 25%;
+    height: 25%;
+}
+
+#submit {
+    margin-top: 2%;
+    margin-left: 10%;
+}
+/* Styling for where articles appear */
+.take-note {
+    padding:5px 5px 5px 5px;
+    margin:5px 5px 5px 5px;
+    background-color: green;
+    border: solid 1px lightgreen;
+    border-radius: 5%;
+    color: white;
+}
+
+.take-note:hover {
+    background-color: lightgreen;
+    border: solid 1px green;
+    color: black
+}
