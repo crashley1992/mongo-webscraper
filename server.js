@@ -28,7 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/newYorkTimesArticles", { useNewUrlParser: true });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newYorkTimesArticles";
+mongoose.connect(MONGODB_URI);
+
+//mongoose.connect("mongodb://localhost/newYorkTimesArticles", { useNewUrlParser: true });
 
 // Set Handlebars.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

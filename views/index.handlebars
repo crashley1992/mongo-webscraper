@@ -4,17 +4,24 @@
     <a class="navbar-brand" href="#">Mongo Scraper</a>
   </nav>
 
-<div class="title-container">
-  <h1 id="title">New York Times Scraper</h1>
-  <h2 id="description"><i>Get your New York Times Articles here</i></h2>
+  <div class="title-container">
+    <h1 id="title">New York Times Scraper</h1>
+    <h2 id="description"><i>Get your New York Times Articles here</i></h2>
     {{!-- Button that calls articles --}}
-  <button id="submit" type="button" class="btn btn-info">Get Articles</button>
+    <button id="submit" type="button" class="btn btn-info">Get Articles</button>
   </div>
-        {{!-- Notes div --}}
-    <div id="notes"></div>
-{{!-- articles appear here --}}
+  {{!-- Notes div --}}
+  <div id="notes">
+    <h6 class="notes-title"></h6>
+    <form>
+      <div class="form-group">
+        <label for="note-input">Notes</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <button type="button" class="btn btn-info" id="savenote">submit</button>
+    </form>
+  </div>
+  {{!-- articles appear here --}}
   <div id="articles"></div>
-    </div>
-  </div>
-
- 
+</div>
+</div>

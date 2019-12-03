@@ -17,6 +17,7 @@
 #notes {
     padding: 5px 5px 5px 5px;
     text-align: center;
+    display: none;
 }
 
 #notes > input {
