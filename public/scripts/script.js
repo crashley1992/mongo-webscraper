@@ -29,15 +29,11 @@ $(document).on("click", ".take-note", function () {
   $('#notes').show();
   const titleUpdate = $('.notes-title').text("Title: " + title);
 });
-
-$(document).on("click", "#savenote", function() {
-
+//sends note info to db
+$(document).on("click", "#savenote", function () {
   const dataIdEvent = $('.take-note').attr('data-id');
   console.log(dataIdEvent);
-  const articleName = event.target.name;
-  console.log(articleName)
-  const articleTitle = $('.take-note').attr(name);
-  //add ajax call for note update
+  // ajax call for note update
   $.ajax({
     method: "POST",
     url: "/api/articles/" + dataIdEvent,
@@ -45,7 +41,7 @@ $(document).on("click", "#savenote", function() {
       body: $('#notes-body').val()
     }
   })
-
+  //clears form after note has been made
   $('form').trigger('reset');
   alert('Notes have been added to the db');
 });
