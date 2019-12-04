@@ -7,11 +7,13 @@ $(document).on('click', '#submit', function () {
       //console.log(data[i].title);
       const nameTitle = data[i].title;
       const srcInfo = data[i].link;
+      const dataId = data[i]._id;
       $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
       //creates button for notes
       const noteInput = $('<button>');
       noteInput.text('Article Notes');
       noteInput.attr('name', nameTitle);
+      noteInput.attr('data-id', dataId);
       noteInput.addClass('take-note');
       $('#articles').append(noteInput);
     }
@@ -29,6 +31,21 @@ $(document).on("click", ".take-note", function () {
 });
 
 $(document).on("click", "#savenote", function() {
+
+  const dataIdEvent = $('.take-note').attr('data-id');
+  console.log(dataIdEvent);
+  const articleName = event.target.name;
+  console.log(articleName)
+  const articleTitle = $('.take-note').attr(name);
+  //add ajax call for note update
+  $.ajax({
+    method: "POST",
+    url: "/api/articles/" + dataIdEvent,
+    data: {
+      body: $('#notes-body').val()
+    }
+  })
+
   $('form').trigger('reset');
   alert('Notes have been added to the db');
 });

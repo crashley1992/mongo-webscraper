@@ -41,6 +41,7 @@ router.get("/articles/:id", (req, res) => {
 // Route for saving/updating an Article's associated Note
 router.post("/articles/:id", (req, res) => {
   // Create a new note and pass the req.body to the entry
+console.log(req.body);
   db.Note.create(req.body)
     .then((dbNote) => {
       // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
