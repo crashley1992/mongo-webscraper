@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const path = require('path');
 const exphbs = require("express-handlebars");
 
+require('dotenv').config()
 
 //axios and cheerio for scraper
 const axios = require('axios');
