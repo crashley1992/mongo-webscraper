@@ -27,7 +27,6 @@ $(document).on('click', '#submit', function () {
       close.text('Close Notes');
       close.addClass('hide');
       $('#articles').append(close);
-
     }
   });
 });
@@ -53,9 +52,9 @@ $(document).on("click", "#savenote", function () {
       body: $('#notes-body').val()
     }
   })
-//make this append to a new div and add a button event
-//that listens to when the button is clicked to show notes
-   $('form').trigger('reset');
+  //make this append to a new div and add a button event
+  //that listens to when the button is clicked to show notes
+  $('form').trigger('reset');
   alert('Notes have been added to the db');
 });
 
@@ -63,18 +62,16 @@ $(document).on('click', '.getnote', function () {
   const dataIdEvent = $('.take-note').attr('data-id');
   console.log(dataIdEvent);
   // ajax call for note update
-  $.getJSON("/api/articles/" + dataIdEvent,  (data) => {
+  $.getJSON("/api/articles/" + dataIdEvent, (data) => {
     //Notes display
     console.log(data.note.body);
     const note = data.note.body;
-    const noteDisplay = $('<p>');
+    const noteDisplay = $('<p><strong> Notes:</strong> ' + note + '</p>');
     noteDisplay.addClass('notes-output');
-    noteDisplay.text(note);
-    $('#notes-display').append(noteDisplay);
-    //displays notes-display div on button click
-    $('#notes-display').show();
+      $('#notes-display').append(noteDisplay);
+      $('#notes-display').show();
   })
-});//end of button click event
+}); //end of button click event
 //close event
 $(document).on('click', '.hide', function () {
   $('#notes-display').hide();
