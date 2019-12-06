@@ -27,6 +27,11 @@ $(document).on('click', '#submit', function () {
       close.text('Close Notes');
       close.addClass('hide');
       $('#articles').append(close);
+      //delete button
+      const remove = $('<button>');
+      remove.text('Delete Notes');
+      remove.addClass('delete');
+      $('#articles').append(remove);
     }
   });
 });
@@ -75,4 +80,17 @@ $(document).on('click', '.getnote', function () {
 //close event
 $(document).on('click', '.hide', function () {
   $('#notes-display').hide();
+});
+
+$(document).on("click", ".delete", function () {
+  const dataIdEvent = $('.take-note').attr('data-id');
+  console.log(dataIdEvent);
+  // ajax call for note update
+  $.ajax({
+    method: "PUT",
+    url: "/api/articles/" + dataIdEvent
+  }).then((data) => {
+    console.log(data);
+  });
+  $('#notes-display').append("THIS NOTE HAS BEEN DELETED FROM THE DATABASE");
 });

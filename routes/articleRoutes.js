@@ -44,5 +44,19 @@ console.log(req.body);
     });
 });
 
+router.put("/articles/:id", (req, res) => {
+  console.log(req.body);
+  db.Note.remove(req.body)
+    .then((dbNote) => {
+      return db.Article.findByIdAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+    })
+    .then((dbArticle) => {
+      res.json(dbArticle);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 
 module.exports = router;
