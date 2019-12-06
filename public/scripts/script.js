@@ -60,6 +60,7 @@ $(document).on("click", "#savenote", function () {
   //make this append to a new div and add a button event
   //that listens to when the button is clicked to show notes
   $('form').trigger('reset');
+  $("#notes").hide();
   alert('Notes have been added to the db');
 });
 
@@ -73,8 +74,8 @@ $(document).on('click', '.getnote', function () {
     const note = data.note.body;
     const noteDisplay = $('<p><strong> Notes:</strong> ' + note + '</p>');
     noteDisplay.addClass('notes-output');
-      $('#notes-display').append(noteDisplay);
-      $('#notes-display').show();
+    $('#notes-display').append(noteDisplay);
+    $('#notes-display').show();
   })
 }); //end of button click event
 //close event
