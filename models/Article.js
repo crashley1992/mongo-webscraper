@@ -12,10 +12,14 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    timestamp: {
+        type: Date, 
+        default: Date.now
+    },
     note: {
         type: Schema.Types.ObjectId,
         ref: "Note"
-    }
+    },
 });
 
 const Article = mongoose.model('Article', ArticleSchema);

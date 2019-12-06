@@ -30,7 +30,8 @@ router.get("/scraper", (req, res) => {
       // Save these results in an object that we'll push into the results array we defined earlier
       results.push({
         title: title,
-        link: link
+        link: link,
+      //  timestamp: timestamp
       });
     });
 

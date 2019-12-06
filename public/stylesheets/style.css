@@ -74,3 +74,37 @@
     margin-top: 2%;
     margin-bottom: 2%;
 }
+ 
+#notes-output {
+    display: none;
+}
+
+.getnote {
+    padding:5px 5px 5px 5px;
+    margin:5px 5px 5px 5px;
+    background-color: red;
+    border: solid 1px lightgoldenrodyellow;
+    border-radius: 5%;
+    color: white;
+}
+
+.getnote:hover {
+    background-color: #ffcccb ;
+    border: solid 1px red;
+    color: black
+}
+
+.hide {
+    padding:5px 5px 5px 5px;
+    margin:5px 5px 5px 5px;
+    background-color: blueviolet;
+    border: solid 1px blue;
+    border-radius: 5%;
+    color: white;
+}
+
+.hide:hover {
+    background-color: lightpink ;
+    border: solid 1px purple;
+    color: black
+}

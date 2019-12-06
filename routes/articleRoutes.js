@@ -7,8 +7,8 @@ const router = express.Router();
 const db = require('../models');
 
 router.get("/articles", (req, res) => {
-//queries for articles in mongo
-  db.Article.find({})
+//queries for articles in mongo and sorts by most recent 
+  db.Article.find().sort({timestamp: -1})
     .then((dbArticle) => {
       res.json(dbArticle);
     })

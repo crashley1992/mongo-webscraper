@@ -5,17 +5,29 @@ $(document).on('click', '#submit', function () {
     for (var i = 0; i < data.length; i++) {
       // Display the article information on the page
       //console.log(data[i].title);
+      //const date = date[i].timestamp;
       const nameTitle = data[i].title;
       const srcInfo = data[i].link;
       const dataId = data[i]._id;
       $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
       //creates button for notes
       const noteInput = $('<button>');
-      noteInput.text('Article Notes');
+      noteInput.text(' Take Article Notes');
       noteInput.attr('name', nameTitle);
       noteInput.attr('data-id', dataId);
       noteInput.addClass('take-note');
       $('#articles').append(noteInput);
+      //creates button to read notes
+      const noteReview = $('<button>');
+      noteReview.text('Review Notes');
+      noteReview.addClass('getnote');
+      $('#articles').append(noteReview);
+      //close button to hide notes
+      const close = $('<button>');
+      close.text('Close Notes');
+      close.addClass('hide');
+      $('#articles').append(close);
+
     }
   });
 });
@@ -41,7 +53,29 @@ $(document).on("click", "#savenote", function () {
       body: $('#notes-body').val()
     }
   })
-  //clears form after note has been made
-  $('form').trigger('reset');
+//make this append to a new div and add a button event
+//that listens to when the button is clicked to show notes
+   $('form').trigger('reset');
   alert('Notes have been added to the db');
+});
+
+$(document).on('click', '.getnote', function () {
+  const dataIdEvent = $('.take-note').attr('data-id');
+  console.log(dataIdEvent);
+  // ajax call for note update
+  $.getJSON("/api/articles/" + dataIdEvent,  (data) => {
+    //Notes display
+    console.log(data.note.body);
+    const note = data.note.body;
+    const noteDisplay = $('<p>');
+    noteDisplay.addClass('notes-output');
+    noteDisplay.text(note);
+    $('#notes-display').append(noteDisplay);
+    //displays notes-display div on button click
+    $('#notes-display').show();
+  })
+});//end of button click event
+//close event
+$(document).on('click', '.hide', function () {
+  $('#notes-display').hide();
 });
