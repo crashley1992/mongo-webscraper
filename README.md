@@ -1,5 +1,5 @@
 # mongo-webscraper
-Purpose:  Use a webscraper to collect data and store them in a DB:
+**Purpose**:  Use a webscraper to collect data and store them in a DB:
 
 **Technologies**: Node.js, Express.js, Express-Handlebars, MongoDB, Mongoose, Cheerio, jQuery.
 
